@@ -1,45 +1,71 @@
-	package kadai5;
-	import java.util.Scanner;
-	
-	public class intToEng {
-	
-		public static void main(String[] args) {
-			Scanner sc = new Scanner(System.in);
-			int input = sc.nextInt();
-			//英語変換
-			System.out.println(translateEng(input));
-		}
+		package kadai5;
+		import java.util.Scanner;
 		
-		static String translateEng(int n) {
-			//11~19
-			if(n==10) { return "ten";
-			}else if(n==11) { return "eleven";
-			}else if(n==12) { return "twelve";
-			}else if(n==13) { return "thirteen";
-			}else if(n==14) { return "fourteen";
-			}else if(n==15) { return "fifteen";
-			}else if(n==16) { return "sixteen";
-			}else if(n==17) { return "seventeen";
-			}else if(n==18) { return "eighteen";
-			}else if(n==19) { return "nineteen";
+		public class intToEng {
+		
+			public static void main(String[] args) {
+				Scanner sc = new Scanner(System.in);
+				int input = sc.nextInt();
+				//英語変換
+				System.out.println(translateEng(input));
 			}
 			
-			int number10=(n/10);
-			int number1 = (n%10);
+			static String translateEng(int n) {
+				StringBuilder sb = new StringBuilder();
+				
+				//11~19
+				if(n==10) { sb.append("ten");}
+				if(n==11) { sb.append("eleven");} 
+				if(n==12) { sb.append("twelve");} 
+				if(n==13) { sb.append("thirteen");} 
+				if(n==14) { sb.append("fourteen");} 
+				if(n==15) { sb.append("fifteen");} 
+				if(n==16) { sb.append("sixteen");} 
+				if(n==17) { sb.append("seventeen");} 
+				if(n==18) { sb.append("eighteen");} 
+				if(n==19) { sb.append("nineteen");}
+				
+				//100の位
+				int number100 = n/100;
+				if(number100 == 1){ sb.append("one hundred ");}
+				if(number100 == 2){ sb.append("two hundred ");}
+				if(number100 == 3){ sb.append("three hundred ");}
+				if(number100 == 4){ sb.append("four hundred ");}
+				if(number100 == 5){ sb.append("five hundred ");}
+				if(number100 == 6){ sb.append("six hundred ");}
+				if(number100 == 7){ sb.append("seven hundred ");}
+				if(number100 == 8){ sb.append("eight hundred ");}
+				if(number100 == 9){ sb.append("nine hundred ");	}		
 			
-			String Enumber1;
-			if(number1==1) { Enumber1="one";
-			}else if(number1==2) { Enumber1="two";
-			}else if(number1==3) { Enumber1="three";
-			}else if(number1==4) { Enumber1="four";
-			}else if(number1==5) { Enumber1="five";
-			}else if(number1==6) { Enumber1="six";
-			}else if(number1==7) { Enumber1="seven";
-			}else if(number1==8) { Enumber1="eight";
-			}else if(number1==9) { Enumber1="nine";
+					
+					
+				//10の位	
+				int number10 = ((n/10)%10);//10の位の値
+				if(number10 == 2){ sb.append("twenty ");}
+				if(number10 == 3){ sb.append("thirty ");}
+				if(number10 == 4){ sb.append("fourty ");}
+				if(number10 == 5){ sb.append("fifty ");}
+				if(number10 == 6){ sb.append("sixty ");}
+				if(number10 == 7){ sb.append("seventy ");}
+				if(number10 == 8){ sb.append("eighty ");}
+				if(number10 == 9){ sb.append("ninety ");}
+			
+				//1~9
+				int number1 = (n%10);
+				
+				
+				if(number1==1) { sb.append("one");} 
+				if(number1==2) { sb.append("two");}
+				if(number1==3) { sb.append("three");}
+				if(number1==4) { sb.append("four");}
+				if(number1==5) { sb.append("five");}
+				if(number1==6) { sb.append("six");}
+				if(number1==7) { sb.append("seven");}
+				if(number1==8) { sb.append("eight");}
+				if(number1==9) { sb.append("nine");}
+				
+				
+				return new String(sb);
 			}
 			
-			return number;
 		}
-		
-	}
