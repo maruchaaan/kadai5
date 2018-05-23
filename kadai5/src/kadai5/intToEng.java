@@ -12,7 +12,7 @@
 			
 			static String translateEng(int n) {
 				StringBuilder sb = new StringBuilder();
-							
+				//			
 				//100の位
 				int number100 = n/100;
 				if(number100 == 1){ sb.append("one hundred ");}
