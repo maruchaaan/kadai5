@@ -14,6 +14,8 @@
 			
 			static String translateEng(int n) {
 				StringBuilder sb = new StringBuilder();
+				//0
+				if(n == 0) { sb.append("zero");};
 				
 				//1000の位
 				int number1000 = n/1000;
@@ -73,6 +75,7 @@
 				if(p == 7){ n="seven"; }
 				if(p == 8){ n="eight"; }
 				if(p == 9){ n="nine"; }	
+				if(p == 10) { n="ten"; }
 				return n;
 			}
 		}
