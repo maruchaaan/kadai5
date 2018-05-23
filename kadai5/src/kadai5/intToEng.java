@@ -7,6 +7,7 @@
 				Scanner sc = new Scanner(System.in);
 				
 			    int input = sc.nextInt();
+			    
 				//英語変換
 				System.out.println(translateEng(input));
 			}
@@ -16,19 +17,15 @@
 				
 				//1000の位
 				int number1000 = n/1000;
-				sb.append(numberEng(number1000)+" thousand ");
+				if(number1000!=0) {
+				  sb.append(numberEng(number1000)+" thousand ");
+				}
 				
 				//100の位
-				int number100 = n/100;
-				if(number100 == 1){ sb.append("one hundred ");}
-				if(number100 == 2){ sb.append("two hundred ");}
-				if(number100 == 3){ sb.append("three hundred ");}
-				if(number100 == 4){ sb.append("four hundred ");}
-				if(number100 == 5){ sb.append("five hundred ");}
-				if(number100 == 6){ sb.append("six hundred ");}
-				if(number100 == 7){ sb.append("seven hundred ");}
-				if(number100 == 8){ sb.append("eight hundred ");}
-				if(number100 == 9){ sb.append("nine hundred ");	}		
+				int number100 = ((n%1000)/100);
+				if(number100!=0) {
+				  sb.append(numberEng(number100)+" hundred ");
+				}		
 			
 				int number10 = ((n/10)%10);//10の位の値
 				
@@ -58,14 +55,15 @@
 			
 				//1~9
 				int number1 = (n%10);
-				sb.append(numberEng(number1));
+				if(number1!=0) {
+				 sb.append(numberEng(number1));
+				}
 				
 				return new String(sb);
 			}
 			
 			public static String numberEng(int p) {
 				String n = null;
-				if(p == 0) { n=""; }
 				if(p == 1){ n="one"; }
 				if(p == 2){ n="two"; }
 				if(p == 3){ n="three"; }
