@@ -5,14 +5,19 @@
 		
 			public static void main(String[] args) {
 				Scanner sc = new Scanner(System.in);
-				int input = sc.nextInt();
+				
+			    int input = sc.nextInt();
 				//英語変換
 				System.out.println(translateEng(input));
 			}
 			
 			static String translateEng(int n) {
 				StringBuilder sb = new StringBuilder();
-				//			
+				
+				//1000の位
+				int number1000 = n/1000;
+				sb.append(numberEng(number1000)+" thousand ");
+				
 				//100の位
 				int number100 = n/100;
 				if(number100 == 1){ sb.append("one hundred ");}
@@ -53,20 +58,23 @@
 			
 				//1~9
 				int number1 = (n%10);
-				
-				
-				if(number1==1) { sb.append("one");} 
-				if(number1==2) { sb.append("two");}
-				if(number1==3) { sb.append("three");}
-				if(number1==4) { sb.append("four");}
-				if(number1==5) { sb.append("five");}
-				if(number1==6) { sb.append("six");}
-				if(number1==7) { sb.append("seven");}
-				if(number1==8) { sb.append("eight");}
-				if(number1==9) { sb.append("nine");}
-				
+				sb.append(numberEng(number1));
 				
 				return new String(sb);
 			}
 			
+			public static String numberEng(int p) {
+				String n = null;
+				if(p == 0) { n=""; }
+				if(p == 1){ n="one"; }
+				if(p == 2){ n="two"; }
+				if(p == 3){ n="three"; }
+				if(p == 4){ n="four"; }
+				if(p == 5){ n="five"; }
+				if(p == 6){ n="six"; }
+				if(p == 7){ n="seven"; }
+				if(p == 8){ n="eight"; }
+				if(p == 9){ n="nine"; }	
+				return n;
+			}
 		}
